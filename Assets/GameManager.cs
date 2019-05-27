@@ -54,8 +54,6 @@ public class GameManager : MonoBehaviour
                 linePointCount++;
                 lineRenderer.positionCount = linePointCount;
 
-                //what fuck...why!!!
-                currentVector3.y -= 3;
                 lineRenderer.SetPosition(linePointCount - 1, currentVector3);
             }
             

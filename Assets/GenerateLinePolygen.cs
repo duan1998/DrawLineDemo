@@ -105,18 +105,16 @@ public class GenerateLinePolygen : MonoBehaviour
 
         Vector2[] newVervex2D = new Vector2[m_vertexList.Length];
 
+
+        int tmpIndex = 0;
         for (int i = 0; i < m_lineRenderer.positionCount; i++)
         {
-            newVervex2D[i] = new Vector2(m_vertexList[i].x, m_vertexList[i].y );
+            newVervex2D[tmpIndex++] = new Vector2(m_vertexList[i].x, m_vertexList[i].y);
         }
-        int tmpInt = 1;
-        for (int i = m_lineRenderer.positionCount; i < 2*m_lineRenderer.positionCount; i++)
+        for (int i = m_lineRenderer.positionCount-1; i >=0; i--)
         {
-            newVervex2D[i] = new Vector2(m_vertexList[2*m_lineRenderer.positionCount-tmpInt].x , m_vertexList[2 * m_lineRenderer.positionCount - tmpInt].y  );
-            tmpInt++;
+            newVervex2D[tmpIndex++] = new Vector2(m_vertexList[m_lineRenderer.positionCount + i].x, m_vertexList[m_lineRenderer.positionCount + i].y);
         }
-        
-
         m_poly2D.points = newVervex2D;
     }
     
